@@ -6,6 +6,11 @@
 }
 
 body {
+  height: 100vh;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
   background-color: azure;
   color: #191a1b;
   font-family: "Open sans", sans-serif;
@@ -23,49 +28,66 @@ h2 {
 
 .flex {
   display: flex;
-  justify-content: center;
+  align-items: center;
 }
 
 .card {
-  height: 650px;
+  height: 500px;
   width: 400px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 0px 37px -3px rgba(0, 0, 0, 0.24);
   background-color: #ffffff;
-}
-.card-thumb {
-  height: 60%;
-  display: flex;
-  flex-direction: row-reverse;
   background-image: url(/learning-sass/assets/img/greece.jpg);
-  background-size: cover;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
-.card-thumb .date {
-  font-size: 18px;
+.card * {
+  transition: all 1s ease-in-out;
+}
+.card:hover p {
+  opacity: 1;
+}
+.card:hover .card-body {
+  bottom: -60px;
+}
+.card .date {
+  font-size: 14px;
   font-weight: 600;
   background-color: #F2AB6D;
   border-radius: 50px;
   text-align: center;
   padding: 10px;
-  margin: 20px;
-  width: 80px;
-  height: 80px;
+  margin: 10px 10px 0 auto;
+  width: 60px;
+  height: 60px;
   color: white;
 }
 .card-body {
-  height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  position: relative;
+  background-color: #ffffff;
+  bottom: -180px;
   padding: 10px 20px;
 }
 .card-body h2, .card-body p {
   margin-top: 5px;
 }
+.card-body p {
+  opacity: 0;
+}
 .card .info {
   display: flex;
   flex-direction: row;
   padding: 25px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: #ffffff;
 }
 .card .info p:first-child {
   margin-right: 20px;
@@ -73,7 +95,8 @@ h2 {
 
 .card-body span {
   position: relative;
-  top: -16px;
+  top: -30px;
+  margin-top: -32px;
   padding: 15px 20px;
   background-color: #4393D9;
   width: 100px;
